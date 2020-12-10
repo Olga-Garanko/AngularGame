@@ -13,4 +13,7 @@ export class DatabaseService {
   getRecord(time: number): number {
     return 0
   }
+  setName(name: string): void {
+    this.name = name;
+  }
 }
