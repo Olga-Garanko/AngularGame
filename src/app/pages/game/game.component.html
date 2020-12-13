@@ -1,4 +1,19 @@
-<p>game works!</p>
-<p>Hello, {{name}}</p>
-<div><a routerLink='/login'>Change Name</a></div>
+<div class="main">
+    <div>
+        <p>Hello, {{name}}</p>
+        <p>You have made {{ clicks }} clicks</p>
+        <div class="board" [ngClass]="{isBlocked: isBlocked}" (click)="addCount()">Click to count</div>
+        <p>Timer: {{ timer }} sec</p>
+    </div>
+    <div>
+        <label><input type="radio" name="sec" value="5" [checked]="t5.value == selectedTime" [disabled]="isActive || isBlocked" (change)="selectTime(t5.value)" #t5> 5</label>
+        <label><input type="radio" name="sec" value="10" [checked]="t10.value == selectedTime" [disabled]="isActive || isBlocked" (change)="selectTime(t10.value)" #t10> 10</label>
+        <label><input type="radio" name="sec" value="15" [checked]="t15.value == selectedTime" [disabled]="isActive || isBlocked" (change)="selectTime(t15.value)" #t15> 15</label>
+        <div><button (click)="onReset()">Reset</button></div>
+        <div><button routerLink='/login' [disabled]="isActive">Change Name</button></div>
+        <p>Previous record for {{ selectedTime }} is {{ getRecord(selectedTime) }} clicks</p>
+        <p>{{ message }}</p>       
+    </div>
+</div>
+
 <div><a routerLink='/records'>Records</a></div>

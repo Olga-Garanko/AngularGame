@@ -1,2 +1,11 @@
 <div><a routerLink='/game'>Let's play!</a></div>
-<p>records works!</p>
+<table>
+    <tr>
+        <td>Time</td>
+        <td>Clicks</td>
+    </tr>
+    <tr *ngFor="let record of keys">
+        <td>{{record}} sec</td>
+        <td>{{records[record]}}</td>
+    </tr>
+</table>
